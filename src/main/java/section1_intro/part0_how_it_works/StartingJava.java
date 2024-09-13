@@ -16,7 +16,7 @@ public class StartingJava {
      * 3. Correct the introduced "error" and make sure the test passes again.
      */
     public void printHelloWorld() {
-        System.out.print("Hello, World");
+        System.out.print("Hello, World!");
     }
 
     /**
@@ -25,7 +25,7 @@ public class StartingJava {
      */
     public void printHelloUser() {
         String user = System.getProperty("user.name");
-        System.out.print("Hello," + user + "!");
+        System.out.print("Hello, " + new String(user) + "!");
     }
 
     /**
@@ -35,10 +35,7 @@ public class StartingJava {
      * @return sum the sum of x and y
      */
     public int addInts(int x, int y) {
-        /*PUT YOUR CODE HERE
-         and replace the zero in the return statement (return 0;)
-         with your own value.*/
-        return 0;
+        return x + y;
     }
 
     /**
@@ -50,8 +47,9 @@ public class StartingJava {
      * @return speed
      */
     public double calculateSpeed(double distanceInMeters, double timeInSeconds) {
-        //YOUR CODE HERE
-        return 0;
+        double speed = distanceInMeters / timeInSeconds;
+        double speedInKm = speed * 3.6;
+        return (int) speedInKm;
     }
 
     /**
@@ -65,8 +63,7 @@ public class StartingJava {
      * @return dividedAndRounded
      */
     public long divideAndRound(double x, double y) {
-        //YOUR CODE
-        return 0;
+        return Math.round(x/y);
     }
 
     /**
@@ -77,8 +74,7 @@ public class StartingJava {
      * @return greeting
      */
     public String getGreeting(int index) {
-        //YOUR CODE
-        return "";
+        return GREETINGS[index];
     }
 
     //This is a constant - an array of Strings used for the getGreeting() method
@@ -99,8 +95,10 @@ public class StartingJava {
      * @return duck a Duck instance
      */
     public Duck createDuck(int swimSpeed, String nameOfDuck) {
-        //YOUR CODE
-        return null;
+        Duck duck = new Duck();
+        duck.swimSpeed = swimSpeed;
+        duck.name = nameOfDuck;
+        return duck;
     }
 
 }

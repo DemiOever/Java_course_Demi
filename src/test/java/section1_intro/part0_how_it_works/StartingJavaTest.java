@@ -32,7 +32,7 @@ public class StartingJavaTest {
         startingJava.printHelloWorld();
         String printedResult = outContent.toString();
         sysOut.print(printedResult);
-        assertEquals("Hello, World", printedResult);
+        assertEquals("Hello, World!", printedResult);
         System.setOut(sysOut);
     }
 
