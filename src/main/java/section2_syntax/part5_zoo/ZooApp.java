@@ -15,17 +15,19 @@ public class ZooApp {
      * @param args
      */
     void processZooData(String[] args) {
-        //YOUR CODE HERE; pass zoo animals to ZooSpecies
+        for (String animal : args) {
+            ZooSpecies.registerSpeciesFromString(animal);
+        }
     }
 
     /**
      * Prints a summary of the zoo.
      */
     void printZooSummary() {
-        final List<ZooSpecies> allSpecies = null; //YOUR CODE HERE; fetch all species
-        //YOUR CODE HERE
+        final List<ZooSpecies> allSpecies = ZooSpecies.getAllSpecies(); //YOUR CODE HERE; fetch all species
+        System.out.println("allSpecies = " + allSpecies);
         for (ZooSpecies species : allSpecies) {
-            //YOUR CODE HERE
+            System.out.println("Species: " + species.getSpeciesName() + ", Count: " + species.getIndividualCount());
         }
     }
 }
