@@ -36,9 +36,6 @@ public class BmiCalculator {
         double userBMI = bc.calculateBMI(userWeight, userHeigth);
         String label = bc.getMessage(userBMI);
 
-        //YOUR CODE HERE
-        //generate output to user
-        
     }
 
     /**
@@ -63,8 +60,16 @@ public class BmiCalculator {
      * @return height the height in meters
      */
     public double getUserWeight() {
-        //YOUR CODE HERE (and remove the throw statement)
-        throw new UnsupportedOperationException("Not implemented yet");
+        System.out.println("Please give your weight, in kilograms (e.g. 69.4kg)");
+        String inputWeight = keyboard.nextLine();
+        double weight = 0;
+        try {
+            weight = Double.parseDouble(inputWeight);
+        } catch (NumberFormatException ex) {
+            System.out.println("This is no number! aborting...");
+            System.exit(0);
+        }
+        return weight;
     }
     
     /**
@@ -81,9 +86,8 @@ public class BmiCalculator {
             throw new IllegalArgumentException("Error: both weight and height should be above 0. Given: weight=" 
                     + weight + ", height=" + height);
         }
-        //YOUR CODE HERE (and remove the throw statement)
-        //Gewicht in kilogram / (Lengte in meter * Lengte in meter)
-        throw new UnsupportedOperationException("Not implemented yet");
+        double bmi = weight / (height * height);
+        return bmi;
     }
 
     /**
@@ -99,7 +103,24 @@ public class BmiCalculator {
      * is provided
      */
     public String getMessage(double bmi) {
-        //YOUR CODE HERE (and remove the throw statement)
-        throw new UnsupportedOperationException("Not implemented yet");
+        if (bmi <= 0.0) {
+            throw new IllegalArgumentException("The calculated BMI was zero or even less");
+        }
+        if (bmi <= 18.5) {
+            return MESSAGES[0];
+        }
+        if (bmi > 18.5 & bmi <= 25.0) {
+            return MESSAGES[1];
+        }
+        if (bmi > 25.0 & bmi <= 30.0) {
+            return MESSAGES[2];
+        }
+        if (bmi > 30.0 & bmi <= 40.0) {
+            return MESSAGES[3];
+        }
+        if (bmi > 40.) {
+            return MESSAGES[4];
+        }
+        return null;
     }
 }
