@@ -15,16 +15,23 @@ public class WeightUnitsSolver {
      * @throws IllegalArgumentException when the Grams quantity is 
      */
     public BritishWeightUnits convertFromGrams(int grams) {
-        //YOUR CODE HERE
-        //change this variable to get a correct testing condition
-        final int gramsTest = Integer.MIN_VALUE;
-
-        if (grams <= gramsTest) {
+        if (grams <= 0) {
             throw new IllegalArgumentException("Error: grams should be above 0. Given: grams=" + grams);
         }
 
+        final int gramsPerPound = 453;
+        final int gramsPerOunce = 28;
+
+        int pounds = grams / gramsPerPound;
+        double remainderGramsAfterPounds = grams % gramsPerPound;
+
+        int ounces = (int) (remainderGramsAfterPounds / gramsPerOunce);
+        double finalGrams = remainderGramsAfterPounds % gramsPerOunce;
+
+        return new BritishWeightUnits(pounds, ounces, (int) finalGrams);
         //solve the pounds, ounces and grams, create and return a BritishWeightUnits instance
         //YOUR CODE HERE
-        throw new UnsupportedOperationException("Not implemented yet");
+//        Ik krijg de 2e unit test helaas niet werkend (begrijp de opdracht niet voldoende)
+//        throw new UnsupportedOperationException("Not implemented yet");
     }
 }
