@@ -12,8 +12,18 @@ public class Point {
      * and when the current point is at (2, -5) it will return Point(-2, 5).
      * @return inverse Point
      */
+    public Point() {
+        this.x = 0;
+        this.y = 0;
+    }
+
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
     Point createInversePoint() {
-        return null;
+        return new Point(-x, -y);
     }
 
     /**
@@ -23,7 +33,12 @@ public class Point {
      * @return euclidean distance
      */
     double euclideanDistanceTo(Point otherPoint) {
-        //YOUR CODE HERE
-        return 0;
+        Point p1 = new Point(x, y);
+        Point p2 = new Point(otherPoint.x, otherPoint.y);
+
+        int verschilX = Math.abs(x - otherPoint.x);
+        int verschilY = Math.abs(y - otherPoint.y);
+
+        return Math.hypot(verschilX, verschilY);
     }
 }
